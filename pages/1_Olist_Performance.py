@@ -326,7 +326,7 @@ st.write("""
 
 df_6 = pd.read_csv('./Data/Olist_delivery_and_volume_.csv')
 
-df_7= pd.read_csv('./Data/Olist_geolocation_dataset.csv')
+df_7= pd.read_csv('./Data/olist_geolocation_dataset.csv')
 
 df_7_unique = df_7.drop_duplicates(
     subset='geolocation_zip_code_prefix',
