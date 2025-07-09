@@ -7,7 +7,7 @@ from matplotlib import cm
 
 st.image("https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1k72mg1_CZvLptX77zzKTg.png")
 
-df_6 = pd.read_csv('../Data/Olist_delivery_and_volume_.csv')
+df_6 = pd.read_csv('./Data/Olist_delivery_and_volume_.csv')
 
 conditions = [
     df_6['prod_mean_volume'] <= 5516,

@@ -12,14 +12,14 @@ import locale
 
 st.image("https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1k72mg1_CZvLptX77zzKTg.png")
 
-customers = pd.read_csv('../Data/olist_customers_dataset.csv', sep=",")
-locations = pd.read_csv('../Data/olist_geolocation_dataset.csv', sep=",")
-order_items = pd.read_csv('../Data/olist_order_items_dataset.csv', sep=",")
-order_payments = pd.read_csv('../Data/olist_order_payments_dataset.csv', sep=",")
-order_reviews = pd.read_csv('../Data/olist_order_reviews_dataset.csv', sep=",")
-orders = pd.read_csv('../Data/olist_orders_dataset.csv', sep=",")
-products = pd.read_csv('../Data/olist_products_dataset.csv', sep=",")
-sellers = pd.read_csv('../Data/olist_sellers_dataset.csv', sep=",")
+customers = pd.read_csv('./Data/olist_customers_dataset.csv', sep=",")
+locations = pd.read_csv('./Data/olist_geolocation_dataset.csv', sep=",")
+order_items = pd.read_csv('./Data/olist_order_items_dataset.csv', sep=",")
+order_payments = pd.read_csv('./Data/olist_order_payments_dataset.csv', sep=",")
+order_reviews = pd.read_csv('./Data/olist_order_reviews_dataset.csv', sep=",")
+orders = pd.read_csv('./Data/olist_orders_dataset.csv', sep=",")
+products = pd.read_csv('./Data/olist_products_dataset.csv', sep=",")
+sellers = pd.read_csv('./Data/olist_sellers_dataset.csv', sep=",")
 product_category_name = pd.read_csv('./Data/product_category_name_translation.csv', sep=",")
 
 order_items = order_items.merge(orders[['order_id', 'order_purchase_timestamp']], on='order_id', how='left')
@@ -55,8 +55,8 @@ except locale.Error:
 DATA_DIR = '.'
 EUR_EXCHANGE_RATE = 0.15
 DATA_FILES = {
-    "orders": os.path.join(DATA_DIR, '../data/olist_orders_dataset.csv'),
-    "order_payments": os.path.join(DATA_DIR, '../data/olist_order_payments_dataset.csv')
+    "orders": os.path.join(DATA_DIR, './Data/olist_orders_dataset.csv'),
+    "order_payments": os.path.join(DATA_DIR, './Data/olist_order_payments_dataset.csv')
 }
 
 def load_data(file_paths_dict):
@@ -229,16 +229,16 @@ fig.update_layout(yaxis_tickprefix="€", xaxis_title="Year", yaxis_title="Profi
 
 st.plotly_chart(fig, use_container_width=True)
 
-
 customers = pd.read_csv('./Data/olist_customers_dataset.csv', sep=",")
-locations = pd.read_csv('../Data/olist_geolocation_dataset.csv', sep=",")
-order_items = pd.read_csv('../Data/olist_order_items_dataset.csv', sep=",")
-order_payments = pd.read_csv('../Data/olist_order_payments_dataset.csv', sep=",")
-order_reviews = pd.read_csv('../Data/olist_order_reviews_dataset.csv', sep=",")
-orders = pd.read_csv('../Data/olist_orders_dataset.csv', sep=",")
-products = pd.read_csv('../Data/olist_products_dataset.csv', sep=",")
-sellers = pd.read_csv('../Data/olist_sellers_dataset.csv', sep=",")
-product_category_name = pd.read_csv('../Data/product_category_name_translation.csv', sep=",")
+locations = pd.read_csv('./Data/olist_geolocation_dataset.csv', sep=",")
+order_items = pd.read_csv('./Data/olist_order_items_dataset.csv', sep=",")
+order_payments = pd.read_csv('./Data/olist_order_payments_dataset.csv', sep=",")
+order_reviews = pd.read_csv('./Data/olist_order_reviews_dataset.csv', sep=",")
+orders = pd.read_csv('./Data/olist_orders_dataset.csv', sep=",")
+products = pd.read_csv('./Data/olist_products_dataset.csv', sep=",")
+sellers = pd.read_csv('./Data/olist_sellers_dataset.csv', sep=",")
+product_category_name = pd.read_csv('./Data/product_category_name_translation.csv', sep=",")
+
 
 merged_df1 = pd.merge(orders, order_items, on='order_id', how='left')
 merged_df2 = pd.merge(merged_df1, products, on='product_id', how='inner')
@@ -275,6 +275,7 @@ st.write("""
     The graph also helps to identify peak periods of activity, which can inform promotional campaigns and resource allocation to meet customer needs effectively.
     """)
 st.write("")
+
 
 for col in outlier_col:
     capping_outlier(col)
@@ -331,18 +332,18 @@ st.write("""
     The audio clip of "Minas Gerais" adds a cultural touch to the visualization, connecting the data to the Brazilian context and enhancing the overall presentation.
     """)
 
-df_6 = pd.read_csv('../Data/Olist_delivery_and_volume_.csv')
+df_6 = pd.read_csv('./Data/Olist_delivery_and_volume_.csv')
 
-df_7= pd.read_csv('../Data/Olist_geolocation_dataset.csv')
+df_7= pd.read_csv('./Data/Olist_geolocation_dataset.csv')
 
 df_7_unique = df_7.drop_duplicates(
     subset='geolocation_zip_code_prefix',
     keep='first'
 )
 
-df_9 = pd.read_csv('../Data/olist_customers_dataset.csv')
+df_9 = pd.read_csv('./Data/olist_customers_dataset.csv')
 
-df_10 = pd.read_csv('../Data/olist_orders_dataset.csv')
+df_10 = pd.read_csv('./Data/olist_orders_dataset.csv')
 
 df_11= df_10.merge(df_9, on='customer_id', how='left')
 
@@ -373,7 +374,7 @@ st.subheader("Correct Pronounciation of Minas Gerais")
 st.audio("https://github.com/paprikaa888/audio-hosting/raw/refs/heads/main/Minas_Gerais.mp3")
 
 
-df_13= pd.read_csv('../Data/olist_order_items_dataset.csv')
+df_13= pd.read_csv('./Data/olist_order_items_dataset.csv')
 
 df_14 = df_12.merge(
     df_13,
@@ -382,9 +383,9 @@ df_14 = df_12.merge(
     right_on='order_id'
 )       
 
-df_14.to_csv('../Data/Olist_geo_orders.csv', index=False, encoding='utf-8')
+df_14.to_csv('./Data/Olist_geo_orders.csv', index=False, encoding='utf-8')
 
-df = pd.read_csv('../Data/Olist_geo_orders.csv')
+df = pd.read_csv('./Data/Olist_geo_orders.csv')
 
 df = df.dropna(subset=['geolocation_lat', 'geolocation_lng', 'price', 'geolocation_state'])
 
