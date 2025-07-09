@@ -43,14 +43,6 @@ DATA_FILES = {
     "order_payments": os.path.join(DATA_DIR, 'olist_order_payments_dataset.csv')
 }
 
-try:
-    locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-except locale.Error:
-    try:
-        locale.setlocale(locale.LC_ALL, 'English_United States.1252')
-    except locale.Error:
-        st.warning("Konnte kein passendes Locale für Tausendertrennzeichen setzen. Zahlen könnten ohne Trennzeichen erscheinen.")
-
 
 DATA_DIR = '.'
 EUR_EXCHANGE_RATE = 0.15
