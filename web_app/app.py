@@ -7,15 +7,15 @@ import plotly.express as px
 from datetime import datetime
 
 
-customers = pd.read_csv('../Data/olist_customers_dataset.csv', sep=",")
-locations = pd.read_csv('../Data/olist_geolocation_dataset.csv', sep=",")
-order_items = pd.read_csv('../Data/olist_order_items_dataset.csv', sep=",")
-order_payments = pd.read_csv('../Data/olist_order_payments_dataset.csv', sep=",")
-order_reviews = pd.read_csv('../Data/olist_order_reviews_dataset.csv', sep=",")
-orders = pd.read_csv('../Data/olist_orders_dataset.csv', sep=",")
-products = pd.read_csv('../Data/olist_products_dataset.csv', sep=",")
-sellers = pd.read_csv('../Data/olist_sellers_dataset.csv', sep=",")
-product_category_name = pd.read_csv('../Data/product_category_name_translation.csv', sep=",")
+customers = pd.read_csv('./Data/olist_customers_dataset.csv', sep=",")
+locations = pd.read_csv('./Data/olist_geolocation_dataset.csv', sep=",")
+order_items = pd.read_csv('./Data/olist_order_items_dataset.csv', sep=",")
+order_payments = pd.read_csv('./Data/olist_order_payments_dataset.csv', sep=",")
+order_reviews = pd.read_csv('./Data/olist_order_reviews_dataset.csv', sep=",")
+orders = pd.read_csv('./Data/olist_orders_dataset.csv', sep=",")
+products = pd.read_csv('./Data/olist_products_dataset.csv', sep=",")
+sellers = pd.read_csv('./Data/olist_sellers_dataset.csv', sep=",")
+product_category_name = pd.read_csv('./Data/product_category_name_translation.csv', sep=",")
 
 
 st.image("https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1k72mg1_CZvLptX77zzKTg.png")
@@ -90,15 +90,15 @@ if show_data:
     option = st.selectbox("Select dataset:", list(option_map.keys()))
 
     df_dict = {
-        "customers": pd.read_csv('../Data/olist_customers_dataset.csv', sep=","),
-        "locations": pd.read_csv('../Data/olist_geolocation_dataset.csv', sep=","),
-        "order_items": pd.read_csv('../Data/olist_order_items_dataset.csv', sep=","),
-        "order_payments": pd.read_csv('../Data/olist_order_payments_dataset.csv', sep=","),
-        "order_reviews": pd.read_csv('../Data/olist_order_reviews_dataset.csv', sep=","),
-        "orders": pd.read_csv('../Data/olist_orders_dataset.csv', sep=","),
-        "products": pd.read_csv('../Data/olist_products_dataset.csv', sep=","),
-        "sellers": pd.read_csv('../Data/olist_sellers_dataset.csv', sep=","),
-        "product_category_name": pd.read_csv('../Data/product_category_name_translation.csv', sep=",")
+        "customers": pd.read_csv('./Data/olist_customers_dataset.csv', sep=","),
+        "locations": pd.read_csv('./Data/olist_geolocation_dataset.csv', sep=","),
+        "order_items": pd.read_csv('./Data/olist_order_items_dataset.csv', sep=","),
+        "order_payments": pd.read_csv('./Data/olist_order_payments_dataset.csv', sep=","),
+        "order_reviews": pd.read_csv('./Data/olist_order_reviews_dataset.csv', sep=","),
+        "orders": pd.read_csv('./Data/olist_orders_dataset.csv', sep=","),
+        "products": pd.read_csv('./Data/olist_products_dataset.csv', sep=","),
+        "sellers": pd.read_csv('./Data/olist_sellers_dataset.csv', sep=","),
+        "product_category_name": pd.read_csv('./Data/product_category_name_translation.csv', sep=",")
     }
 
     # Use the mapped key
