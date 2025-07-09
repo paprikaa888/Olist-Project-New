@@ -6,7 +6,17 @@ import numpy as np
 import plotly.express as px
 from datetime import datetime
 
-import cleaning_pat
+
+customers = pd.read_csv('../Data/olist_customers_dataset.csv', sep=",")
+locations = pd.read_csv('../Data/olist_geolocation_dataset.csv', sep=",")
+order_items = pd.read_csv('../Data/olist_order_items_dataset.csv', sep=",")
+order_payments = pd.read_csv('../Data/olist_order_payments_dataset.csv', sep=",")
+order_reviews = pd.read_csv('../Data/olist_order_reviews_dataset.csv', sep=",")
+orders = pd.read_csv('../Data/olist_orders_dataset.csv', sep=",")
+products = pd.read_csv('../Data/olist_products_dataset.csv', sep=",")
+sellers = pd.read_csv('../Data/olist_sellers_dataset.csv', sep=",")
+product_category_name = pd.read_csv('../Data/product_category_name_translation.csv', sep=",")
+
 
 st.image("https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1k72mg1_CZvLptX77zzKTg.png")
 st.title("Olist E-Commerce Analysis             (2016-2018)")
@@ -63,18 +73,33 @@ st.sidebar.text_area("Enter your feedback", "Type Here ...")
 show_data = st.sidebar.checkbox("Show Data")
 if show_data:
     st.write("### Data Frame")
-    option = st.selectbox(
-    "Select dataset:",
-    ("Order Reviews", "Customers", "Sellers", "Products", "Orders", "Order Items", "Order Payments", "Product Category Name", "Locations"))
+    
+    # Map display names to actual keys
+    option_map = {
+        "Order Reviews": "order_reviews",
+        "Customers": "customers",
+        "Sellers": "sellers",
+        "Products": "products",
+        "Orders": "orders",
+        "Order Items": "order_items",
+        "Order Payments": "order_payments",
+        "Product Category Name": "product_category_name",
+        "Locations": "locations"
+    }
+
+    option = st.selectbox("Select dataset:", list(option_map.keys()))
+
     df_dict = {
-        "Order Reviews": cleaning_pat.order_reviews,
-        "Customers": cleaning_pat.customers,
-        "Sellers": cleaning_pat.sellers,
-        "Products": cleaning_pat.products,
-        "Orders": cleaning_pat.orders,
-        "Order Items": cleaning_pat.order_items,
-        "Order Payments": cleaning_pat.order_payments,
-        "Product Category Name": cleaning_pat.product_category_name,
-        "Locations": cleaning_pat.locations
-        }
-    st.dataframe(df_dict[option])
+        "customers": pd.read_csv('../Data/olist_customers_dataset.csv', sep=","),
+        "locations": pd.read_csv('../Data/olist_geolocation_dataset.csv', sep=","),
+        "order_items": pd.read_csv('../Data/olist_order_items_dataset.csv', sep=","),
+        "order_payments": pd.read_csv('../Data/olist_order_payments_dataset.csv', sep=","),
+        "order_reviews": pd.read_csv('../Data/olist_order_reviews_dataset.csv', sep=","),
+        "orders": pd.read_csv('../Data/olist_orders_dataset.csv', sep=","),
+        "products": pd.read_csv('../Data/olist_products_dataset.csv', sep=","),
+        "sellers": pd.read_csv('../Data/olist_sellers_dataset.csv', sep=","),
+        "product_category_name": pd.read_csv('../Data/product_category_name_translation.csv', sep=",")
+    }
+
+    # Use the mapped key
+    st.dataframe(df_dict[option_map[option]])

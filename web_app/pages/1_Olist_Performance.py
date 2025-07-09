@@ -12,15 +12,15 @@ import locale
 
 st.image("https://miro.medium.com/v2/resize:fit:4800/format:webp/1*1k72mg1_CZvLptX77zzKTg.png")
 
-customers = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_customers_dataset.csv', sep=",")
-locations = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_geolocation_dataset.csv', sep=",")
-order_items = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_order_items_dataset.csv', sep=",")
-order_payments = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_order_payments_dataset.csv', sep=",")
-order_reviews = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_order_reviews_dataset.csv', sep=",")
-orders = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_orders_dataset.csv', sep=",")
-products = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_products_dataset.csv', sep=",")
-sellers = pd.read_csv('./download/olistbr_brazilian-ecommerce/olist_sellers_dataset.csv', sep=",")
-product_category_name = pd.read_csv('./download/olistbr_brazilian-ecommerce/product_category_name_translation.csv', sep=",")
+customers = pd.read_csv('../Data/olist_customers_dataset.csv', sep=",")
+locations = pd.read_csv('../Data/olist_geolocation_dataset.csv', sep=",")
+order_items = pd.read_csv('../Data/olist_order_items_dataset.csv', sep=",")
+order_payments = pd.read_csv('../Data/olist_order_payments_dataset.csv', sep=",")
+order_reviews = pd.read_csv('../Data/olist_order_reviews_dataset.csv', sep=",")
+orders = pd.read_csv('../Data/olist_orders_dataset.csv', sep=",")
+products = pd.read_csv('../Data/olist_products_dataset.csv', sep=",")
+sellers = pd.read_csv('../Data/olist_sellers_dataset.csv', sep=",")
+product_category_name = pd.read_csv('../Data/product_category_name_translation.csv', sep=",")
 
 order_items = order_items.merge(orders[['order_id', 'order_purchase_timestamp']], on='order_id', how='left')
 if 'order_purchase_timestamp_x' in order_items.columns:
@@ -382,9 +382,9 @@ df_14 = df_12.merge(
     right_on='order_id'
 )       
 
-df_14.to_csv('../Olist_geo_orders.csv', index=False, encoding='utf-8')
+df_14.to_csv('../Data/Olist_geo_orders.csv', index=False, encoding='utf-8')
 
-df = pd.read_csv('../Olist_geo_orders.csv')
+df = pd.read_csv('../Data/Olist_geo_orders.csv')
 
 df = df.dropna(subset=['geolocation_lat', 'geolocation_lng', 'price', 'geolocation_state'])
 
