@@ -38,11 +38,11 @@ The app is powered by:
 
 The project is modular, with different sections implemented in separate Python files for better organization:
 
-- `intro.py` — Displays the introduction and welcome page.
-- `analysis_one.py` — Provides detailed analysis relating to [Specify Topic 1, e.g., Economic Indicators].
-- `analysis_two.py` — Provides detailed analysis relating to [Specify Topic 2, e.g., Company KPIs].
-- `references.py` — Lists and manages reference materials.
-
+- **`app`** — Shows the introduction and welcome page.  
+- **`Olist_Performance`** — Offers in-depth analysis on *[Specify Topic 1, e.g., Economic Indicators]*.  
+- **`Exploratory Data Analytics`** — Explores *[Specify Topic 2, e.g., Company KPIs]* through detailed data examination.  
+- **`Delivery Accuracy`** — Highlights how delivery time affects customer ratings.  
+- **`Summary`** — Compiles and organizes reference materials.
 ---
 
 ## 🚀 **Features**
