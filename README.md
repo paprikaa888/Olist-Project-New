@@ -1,8 +1,8 @@
-# Olist Analysis: Internal Success Factors (2016-2018).
+# Olist Analysis: Internal Success Factors (2016-2018)
 
-This interactive web application, created by **Francesca De Gruttola, Patrycja Pisarska, Moses Aulbach, and Abdullah Caglar** as part of the final project of the Data Analytics Bootcamp at the SPICED Academy, offers the unique opportunity to look behind the scenes of an e-commerce company and identify the drivers of success. 📈
+This interactive web application (link below), created by **Francesca De Gruttola, Patrycja Pisarska, Moses Aulbach and Abdullah Caglar** as part of the final project of the Data Analytics Bootcamp at the SPICED Academy, offers the unique opportunity to look behind the scenes of an e-commerce company and identify the drivers of success. 📈
 
----
+[VISIT OUR APP](https://capstone-project-spiced.streamlit.app)
 
 ## 🌟 **Overview**
 
